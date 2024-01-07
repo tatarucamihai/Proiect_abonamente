@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proiect_abonamente.HomePage"
+             Title="HomePage">
+    <Grid RowDefinitions="Auto,*">
+        <Frame Grid.Row="1" CornerRadius="31" TranslationY="-23" BorderColor="Transparent" VerticalOptions="FillAndExpand">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="20" RowSpacing="5">
+                <Label Grid.Row="0" Text="Welcome to GymFit!" FontSize="23" HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="1" Text="Log in to your GymFit account and let's start your fitness journey together." Margin="0,0,0,18"  TextColor="#63909c" HorizontalTextAlignment="Center"/>
+                <!-- Email Information -->
+                <Label Grid.Row="2" Text="Email" FontSize="16" FontAttributes="Bold"/>
+                <Border Grid.Row="3" StrokeShape="RoundRectangle 20,20,20,20">
+                    <Entry x:Name="emailEntry" BackgroundColor="#c7dbe0" TextColor="#578794" HeightRequest="50"/>
+                </Border>
+                <!-- Password Information-->
+                <Label Grid.Row="4" Text="Password" FontSize="16" FontAttributes="Bold"/>
+                <Border Grid.Row="5" StrokeShape="RoundRectangle 20,20,20,20">
+                    <Entry x:Name="passwordEntry" BackgroundColor="#c7dbe0" TextColor="#578794" IsPassword="True" HeightRequest="50"/>
+                </Border>
+                <!-- Continue Button -->
+                <Button Grid.Row="6" Text="Continue" FontAttributes="Bold" TextColor="White" Margin="0,20" HeightRequest="50" CornerRadius="10" BackgroundColor="#508390" Clicked="OnContinueButtonClicked"/>
+                <!-- Sign in description -->
+                <Label Grid.Row="7" FontAttributes="Bold">
+                    
+                </Label>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
