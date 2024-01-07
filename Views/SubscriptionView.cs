@@ -1,4 +1,4 @@
-﻿// SubscriptionView.cs
+﻿
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -39,13 +39,13 @@ namespace Proiect_abonamente.Views
         public async Task SaveSubscriptionAsync(Subscription subscription)
         {
             await App.Database.SaveSubscriptionModelAsync(subscription);
-            await LoadSubscriptionsAsync(); // Reîmprospătează lista de abonamente după adăugare/modificare
+            await LoadSubscriptionsAsync(); 
         }
 
         public async Task DeleteSubscriptionAsync(Subscription subscription)
         {
             await App.Database.DeleteSubscriptionModelAsync(subscription);
-            await LoadSubscriptionsAsync(); // Reîmprospătează lista de abonamente după ștergere
+            await LoadSubscriptionsAsync(); 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

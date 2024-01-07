@@ -8,18 +8,18 @@
     </ContentPage.ToolbarItems>
 
     <Grid>
-        <!-- Rândul 0: Imaginea -->
+        
         <Image Source="gantere.jpg"
                Grid.Row="0"
                Grid.RowSpan="2"
                Aspect="AspectFill" />
 
-        <!-- Rândul 1: Textul -->
+      
         <StackLayout Grid.Row="1">
             <Label Text="Bun venit la sala noastra!" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
         </StackLayout>
 
-        <!-- Rândul 2: Lista -->
+      
         <ListView x:Name="listView"
           Grid.Row="2"
           ItemSelected="OnListViewItemSelected">

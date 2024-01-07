@@ -9,20 +9,16 @@
     </ContentPage.BindingContext>
 
     <StackLayout Margin="20">
-        <!-- Display the fixed subscription type -->
+       
         <Label Text="Abonament lunar" FontSize="18" />
 
-        <!-- Grid for buttons -->
+      
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <!-- Button for save -->
             <Button Text="Save" Clicked="OnSaveButtonClicked" />
-
-            <!-- Button for delete -->
             <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
         </Grid>
     </StackLayout>

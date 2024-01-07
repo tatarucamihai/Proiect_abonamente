@@ -22,17 +22,16 @@ namespace Proiect_abonamente
             string email = emailEntry.Text;
             string password = passwordEntry.Text;
 
-            // Verificați dacă utilizatorul cu acest email există deja în baza de date
+            
             var existingUser = await App.Database.GetClientByEmailAsync(email);
             if (existingUser != null)
             {
-                // Utilizatorul există deja, afișați un mesaj sau faceți altă acțiune corespunzătoare
-                // de ex. "Adresa de email este deja înregistrată."
+                
                 DisplayAlert("Error", "Email address is already registered.", "OK");
                 return;
             }
 
-            // Salvați noul utilizator în baza de date
+           
             var newUser = new Client
             {
                 FirstName = firstName,
@@ -44,14 +43,13 @@ namespace Proiect_abonamente
             };
             await App.Database.SaveClientModelAsync(newUser);
 
-            // După înregistrare, poți redirecționa utilizatorul către pagina de start sau altă pagină relevantă
+            
             await Navigation.PushAsync(new HomePage());
         }
 
 
         private async void OnSignInLabelClicked(object sender, EventArgs e)
         {
-            // Redirectează utilizatorul către pagina de autentificare (login).
             await Navigation.PushAsync(new HomePage());
         }
     }

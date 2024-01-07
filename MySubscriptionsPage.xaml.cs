@@ -13,10 +13,10 @@ namespace Proiect_abonamente
         {
             InitializeComponent();
 
-            // Inițializează subscriptionsListView
+            
             subscriptionsListView = new ListView();
 
-            // Adaugă un șablon de element pentru afișarea datelor în ListView
+           
             subscriptionsListView.ItemTemplate = new DataTemplate(() =>
             {
                 var textCell = new TextCell();
@@ -25,7 +25,7 @@ namespace Proiect_abonamente
                 return textCell;
             });
 
-            // Adaugă subscriptionsListView la StackLayout
+           
             var stackLayout = (StackLayout)Content;
             stackLayout.Children.Add(subscriptionsListView);
         }
@@ -34,7 +34,7 @@ namespace Proiect_abonamente
         {
             base.OnAppearing();
 
-            // Obțineți abonamentele din baza de date și adăugați-le la ListView
+            
             var subscriptions = App.Database.GetSubscriptionModelsAsync().Result;
             subscriptionsListView.ItemsSource = new ObservableCollection<Subscription>(subscriptions);
         }

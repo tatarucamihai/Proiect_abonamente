@@ -5,9 +5,9 @@
              Title="AboutPage">
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
-            <Label FontSize="22" FontAttributes="Bold" Text="Abonamentele la cea mai exclusivista sala" VerticalOptions="End" />
+            <Label x:Name="emailLabel" Text="Not logged in" FontSize="18" VerticalOptions="End" />
             
-            <Label x:Name="emailLabel"  FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+            
         </HorizontalStackLayout>
         <Image Source="poza.jpg"
                SemanticProperties.Description="Abonamentele la cea mai exclusivista sala!"

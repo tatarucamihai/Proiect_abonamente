@@ -4,7 +4,7 @@
              x:Class="Proiect_abonamente.LogoutPage"
              Title="LogoutPage">
     <StackLayout>
-        <!-- You can customize the UI as needed -->
+       
         <Button Text="Logout" Clicked="OnLogoutButtonClicked" />
     </StackLayout>
 

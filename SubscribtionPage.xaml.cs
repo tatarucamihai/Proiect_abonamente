@@ -8,13 +8,13 @@ namespace Proiect_abonamente
 {
     public partial class SubscribtionPage : ContentPage
     {
-        private Subscription _subscription; // Remove _viewModel if not needed
+        private Subscription _subscription; 
 
         public SubscribtionPage()
         {
             InitializeComponent();
             _subscription = new Subscription();
-            BindingContext = _subscription; // Set the BindingContext to the Subscription instance
+            BindingContext = _subscription; // Instanta de subscribtion
         }
 
         private async void OnSaveButtonClicked(object sender, EventArgs e)
@@ -23,46 +23,43 @@ namespace Proiect_abonamente
             var selectedDate = await DisplayPromptAsync("Selectați data", "Introduceți data abonamentului", "OK", "Anulați", null, -1, Keyboard.Default, DateTime.Now.ToString("d"));
 
             if (selectedDate == null)
-                return; // Ieșiți din metoda OnSaveButtonClicked dacă utilizatorul a anulat introducerea datei
+                return; 
 
             if (!DateTime.TryParse(selectedDate, out DateTime subscriptionDate))
             {
                 await DisplayAlert("Eroare", "Data introdusă nu este validă.", "OK");
-                return; // Ieșiți din metoda OnSaveButtonClicked dacă data nu este validă
+                return; 
             }
 
             _subscription.Date = subscriptionDate;
             _subscription.DurationInMonths = 1;
 
-            // Retrieve the logged-in client from the database
+            // Identificam clientul din baza de date
             Client loggedInClient = await App.Database.GetLoggedInClientAsync();
 
             if (loggedInClient == null)
             {
-                // If not logged in, show a simple alert message
+                
                 await DisplayAlert("Not Logged In", "Trebuie să fii logat pentru a cumpăra abonamente.", "OK");
-                return; // Ieși din metoda OnSaveButtonClicked
+                return; 
             }
 
             if (loggedInClient != null)
             {
-                // Set the ClientId property of the subscription
+                
                 _subscription.ClientId = loggedInClient.ClientId;
 
                 try
                 {
-                    // Salvează sau actualizează Subscription în baza de date
+                    
                     await App.Database.SaveSubscriptionModelAsync(_subscription);
-
                     Console.WriteLine("Subscription saved successfully.");
-
-                    // Navighează către pagina "SubscribtionEntryPage"
                     await Navigation.PushAsync(new SubscribtionEntryPage());
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error saving subscription: {ex.Message}");
-                    // Poți adăuga o afișare a unei alerte pentru a informa utilizatorul despre eroare.
+                    
                 }
             }
             
@@ -72,7 +69,7 @@ namespace Proiect_abonamente
         {
             var subscription = (Subscription)BindingContext;
 
-            // Șterge Subscription din baza de date
+            
             await App.Database.DeleteSubscriptionModelAsync(subscription);
 
             await Navigation.PopAsync();

@@ -13,7 +13,7 @@ namespace Proiect_abonamente
 
         private void LoadData()
         {
-            // Simulați datele pentru beneficii și orarul claselor
+            
             Class classData1 = new Class
             {
                 Title = "Acces nelimitat",
@@ -41,10 +41,10 @@ namespace Proiect_abonamente
                 Time = "20:00 - 21:00"
             };
 
-            // Adăugați clasele într-o colecție (pot fi adăugate într-o listă sau altă structură de date)
+           
             List<Class> classes = new List<Class> { classData1, classData2, classData3 };
 
-            // Utilizați colecția în locul unei singure instanțe pentru BindingContext
+           
             BindingContext = classes;
         }
     }
